@@ -32,6 +32,10 @@ Disclaimer: In order to attach the display HAT, you will need to have GPIO pins 
 4. Execute the main script
 
       $ ```python3 main.py```
+5. Optionally, install the script service to have it run on bootup
+
+      $ ```chmod +x service/install_svc.sh```
+      $ ```./service/install_svc.sh```
 
 The script will recursively scan the subfolders of your music directory and register them as playlists. You can switch between them by navigating the on-screen menu
 

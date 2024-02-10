@@ -1,0 +1,12 @@
+[Unit]
+Description=Python script for music player
+After=default.target
+Requires=bluetooth.target
+
+[Service]
+Type=idle
+#Restart=on-failure
+ExecStart=/usr/bin/python3 /path/to/script/main.py
+
+[Install]
+WantedBy=default.target
