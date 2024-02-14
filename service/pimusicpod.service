@@ -6,7 +6,7 @@ Requires=bluetooth.target
 [Service]
 Type=idle
 #Restart=on-failure
-ExecStart=/usr/bin/python3 /path/to/script/main.py
+ExecStart=/usr/bin/bash /path/to/script/launch.sh
 
 [Install]
 WantedBy=default.target

@@ -8,7 +8,6 @@ luma.oled==3.13.0
 omxplayer-wrapper==0.3.3
 pathlib2==2.3.7.post1
 Pillow==9.5.0
-pkg-resources==0.0.0
 pyftdi==0.54.0
 pyserial==3.5
 pyusb==1.2.1
