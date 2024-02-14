@@ -168,7 +168,7 @@ class ScreenMaster():
     def run_bt_script(self, prompt="Running script...") -> None:
         with canvas(self.device) as draw:
             draw.text((0, line_pad[0]), prompt,  font=font, fill=255)
-            draw.rectangle(((14, 36), (114, 28)), outline=255, fill=0)
+            draw.rectangle(((14, 28), (114, 36)), outline=255, fill=0)
         time.sleep(2)
         progress = 0
         if self.music.player:
@@ -183,16 +183,16 @@ class ScreenMaster():
         for s in self.bthack.initiate(True, True):
             progress = max(min(progress + s, 100), 0)  # clamp to 100%
             with canvas(self.device) as draw:
-                draw.text((0, line_pad[0]), prompt,  font=font, fill=255)
-                draw.rectangle(((14, 36), (114, 28)),
+                draw.text((0, line_pad[0]), prompt + "{}%".format(progress),  font=font, fill=255)
+                draw.rectangle(((14, 28), (114, 36)),
                                outline=255, fill=0)  # outer rect
                 draw.rectangle(
-                    ((14, 36), (round(114 * (progress/100)), 28)), outline=255, fill=255)  # inner rect
+                    ((14, 28), (round(114 * (progress/100)), 36)), outline=255, fill=255)  # inner rect
         if progress == 100:
             with canvas(self.device) as draw:
                 draw.text((0, line_pad[0]),
                           "Script succesful!",  font=font, fill=255)
-                draw.rectangle(((14, 36), (114, 28)),
+                draw.rectangle(((14, 28), (114, 36)),
                                outline=255, fill=255)  # full bar
         else:
             self.DisplayText([prompt, "Script failed!"])  # shouldn't happen

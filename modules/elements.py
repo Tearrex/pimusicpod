@@ -167,7 +167,7 @@ class Slider(Element):
                 with canvas(self.device) as draw:
                     draw.text(
                         (0, -2), "Set the brightness",  font=font, fill=255)
-                    draw.rectangle(((14, 36), (114, 28)), outline=255, fill=0)
+                    draw.rectangle(((14, 28), (114, 36)), outline=255, fill=0)
                     if not GPIO.input(KEY_LEFT_PIN):
                         if self.value >= 5:
                             self.value -= 5
@@ -197,7 +197,7 @@ class Slider(Element):
                             draw.polygon(
                                 [(117, 27), (117, 37), (126, 32)], outline=255, fill=0)
                     draw.rectangle(
-                        ((14, 36), (14 + round(100 * (self.value/100)), 28)), outline=255, fill=255)
+                        ((14, 28), (14 + round(100 * (self.value/100)), 36)), outline=255, fill=255)
             shouldRefresh = False
         if self.value != self.master.settings["brightness"]:
             # save changes
@@ -370,7 +370,7 @@ class Menu(Element):
                         optionIndex += 1
                     break
                 elif not GPIO.input(KEY_RIGHT_PIN):
-                    if not self.paginate and self.options[optionIndex].activate() or pages[pageIndex][optionIndex].activate():
+                    if not self.paginate and self.options[optionIndex].activate() or self.paginate and pages[pageIndex][optionIndex].activate():
                         # if self.dismissable and self.submenu:
                         if self.submenu:
                             if not self.paginate and self.autoclose:
